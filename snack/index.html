@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,15 +16,17 @@
                   "contact": "92998-3874"
                   };
  
-                var obj_s = JSON.stringify(obj);
+                var obj_s = JSON.stringify(obj, null, "\t");
  
-                $("#json_output").html(obj_s);
+                var dataUri = "data:application/json;charset=utf-8,"+ encodeURIComponent(obj_s);
+                var link = $("#link").attr("href", dataUri);
+ 
             });
         </script>
         <title>JSON Generate with jQuery</title>
     </head>
  
     <body>
-        <pre id="json_output"></pre>
+        <a href="#" id="link" download="sample.json">download</a>
     </body>
 </html>
